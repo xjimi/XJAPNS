@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "XJAPNS.h"
 
 @interface AppDelegate ()
 
@@ -16,30 +17,55 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    [self APNSRegister];
     return YES;
 }
 
+- (void)APNSRegister
+{
+    //開通推播權限
+    [XJAPNS registerUserNotification];
+    
+    //處理您要上傳至server的事件
+    [XJAPNS postRrequestProcess:^(id parameters) {
+        
+        NSString *uid = parameters[@"uid"];
+        NSLog(@"uid : %@ , deviceToke : %@", uid, [XJAPNS deviceToken]);
+        //server資料更新完成後 請執行 --> [XJAPNS completedRegister];
+        
+    }];
+    
+    //例如：user登入取得uid,可 updateWithParameters 會觸發 postRrequestProcess 處理上傳事件
+    //[XJAPNS updateWithParameters:@{@"uid":@"uid7533967"}];
+}
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    //註冊之後 會觸發 postRrequestProcess 處理上傳事件
+    //[XJAPNS registerDeviceToken:deviceToken];
+    
+    //如果需要參數 例如 uid
+    [XJAPNS registerDeviceToken:deviceToken parameters:@{@"uid":@"uid7533967"}];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    //若網路不穩 上傳資料失敗  當app喚醒時  會檢查是否要再上傳資料
+    [XJAPNS updateIfNeeded];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
 @end

@@ -14,6 +14,7 @@
 		90C7F3141AB18BD0006712D9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90C7F3131AB18BD0006712D9 /* Images.xcassets */; };
 		90C7F3171AB18BD0006712D9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90C7F3151AB18BD0006712D9 /* LaunchScreen.xib */; };
 		90C7F3231AB18BD0006712D9 /* XJAPNS_DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C7F3221AB18BD0006712D9 /* XJAPNS_DemoTests.m */; };
+		90C7F32F1AB18BFA006712D9 /* XJAPNS.m in Sources */ = {isa = PBXBuildFile; fileRef = 90C7F32E1AB18BFA006712D9 /* XJAPNS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		90C7F31C1AB18BD0006712D9 /* XJAPNS_DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XJAPNS_DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C7F3211AB18BD0006712D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		90C7F3221AB18BD0006712D9 /* XJAPNS_DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XJAPNS_DemoTests.m; sourceTree = "<group>"; };
+		90C7F32D1AB18BFA006712D9 /* XJAPNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XJAPNS.h; sourceTree = "<group>"; };
+		90C7F32E1AB18BFA006712D9 /* XJAPNS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XJAPNS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		90C7F3051AB18BD0006712D9 /* XJAPNS_Demo */ = {
 			isa = PBXGroup;
 			children = (
+				90C7F32C1AB18BFA006712D9 /* XJAPNS */,
 				90C7F30A1AB18BD0006712D9 /* AppDelegate.h */,
 				90C7F30B1AB18BD0006712D9 /* AppDelegate.m */,
 				90C7F30D1AB18BD0006712D9 /* ViewController.h */,
@@ -117,6 +121,15 @@
 				90C7F3211AB18BD0006712D9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		90C7F32C1AB18BFA006712D9 /* XJAPNS */ = {
+			isa = PBXGroup;
+			children = (
+				90C7F32D1AB18BFA006712D9 /* XJAPNS.h */,
+				90C7F32E1AB18BFA006712D9 /* XJAPNS.m */,
+			);
+			path = XJAPNS;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +235,7 @@
 				90C7F30F1AB18BD0006712D9 /* ViewController.m in Sources */,
 				90C7F30C1AB18BD0006712D9 /* AppDelegate.m in Sources */,
 				90C7F3091AB18BD0006712D9 /* main.m in Sources */,
+				90C7F32F1AB18BFA006712D9 /* XJAPNS.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +311,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -332,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -344,6 +358,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XJAPNS_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -354,6 +369,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = XJAPNS_Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
